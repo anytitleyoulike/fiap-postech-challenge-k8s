@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: fiap-postech-selfservice-fastfood
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: fiap-postech-selfservice-fastfood
