@@ -51,6 +51,8 @@ kubectl apply -f code/service.yml -n postech
 kubectl apply -f code/nodeport-service.yml -n postech
 kubectl apply -f hpa/fiap-postech-selfservice-fastfood-hpa.yml -n postech
 
+kubectl apply -f lb/public-lb.yml -n postech
+
 -- Postgres
 kubectl apply -f postgres/pv.yml -n postech
 kubectl apply -f postgres/secret.yml -n postech
