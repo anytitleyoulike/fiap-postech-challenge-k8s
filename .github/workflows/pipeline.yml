@@ -25,6 +25,7 @@ jobs:
           unzip awscliv2.zip
 
           sudo ./aws/install
+      
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
@@ -32,6 +33,10 @@ jobs:
           aws-secret-access-key: '${{ secrets.AWS_SECRET_ACCESS_KEY }}'
           aws-session-token: '${{ secrets.AWS_SESSION_TOKEN }}'
           aws-region: '${{ secrets.AWS_REGION }}'
+
+      - name: Connect to EKS Cluster
+        run: |
+          aws eks update-kubeconfig --name cluster-postech-challenge-3  --region us-east-1
       - name: Apply Load Balancer Configuration
         run: |
           kubectl apply -f code/deployment.yml -n postech
